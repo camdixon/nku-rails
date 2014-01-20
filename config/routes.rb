@@ -1,4 +1,7 @@
 NkuRails::Application.routes.draw do
-  resources :posts
+  resources :posts do
+    resources :comments
+  end
+
   root "welcome#index"
 end

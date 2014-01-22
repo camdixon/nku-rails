@@ -12,7 +12,7 @@ class StudentIndexPage
 
   def visit_edit_student_page(student)
     within "#student_#{student.id}" do
-      click_link 'Edit'
+      click_link student.name
     end
   end
 

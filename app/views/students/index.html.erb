@@ -1,12 +1,24 @@
 <div class="page-header">
-  <h1>Students</h1>
+  <div class="row">
+    <h1 class="col-sm-8">Students
+    </h1>
+    <div class="col-sm-4">
+      <%= link_to 'Create a new student', new_student_path, class: 'btn btn-default pull-right' %>
+    </div>
+  </div>
 </div>
 
-<%= link_to 'Create a new student', new_student_path %>
 
 <% @students.each do |student| %>
   <div id="<%=dom_id(student)%>">
-    <%= student.name %>
-    <%= link_to 'Edit', edit_student_path(student) %>
+    <% if student.image_url? %>
+      <div class="avatar pull-left" style='background-image: url(<%= student.image_url %>)'></div>
+    <% end %>
+
+    <div class="info-block">
+      <h4><%= link_to student.name, edit_student_path(student) %></h4>
+      <p><em>(<%= student.phonetic_name %>)</em></p>
+      <p><%= student.email %></p>
+    </div>
   </div>
 <% end %>

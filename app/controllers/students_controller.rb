@@ -8,6 +8,16 @@ class StudentsController < ApplicationController
     redirect_to students_path
   end
 
+  def edit
+    @student = Student.find(params[:id])
+  end
+
+  def update
+    @student = Student.find(params[:id])
+    @student.update_attributes!(student_params)
+    redirect_to students_path
+  end
+
   def index
     @students = Student.all
   end

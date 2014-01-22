@@ -10,6 +10,12 @@ class StudentIndexPage
     click_link 'Create a new student'
   end
 
+  def visit_edit_student_page(student)
+    within "#student_#{student.id}" do
+      click_link 'Edit'
+    end
+  end
+
   def has_student?(student)
     has_content?(student.name)
   end

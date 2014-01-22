@@ -2,31 +2,4 @@
   <h1>Create a new student</h1>
 </div>
 
-<div class="row col-sm-6">
-  <%= form_for @student do |f| %>
-    <div class="form-group">
-      <%= f.label :name %>
-      <%= f.text_field :name, class: 'form-control' %>
-    </div>
-
-    <div class="form-group">
-      <%= f.label :phonetic_name, 'Phonetic Name' %>
-      <%= f.text_field :phonetic_name, class: 'form-control' %>
-    </div>
-
-    <div class="form-group">
-      <%= f.label :email %>
-      <%= f.text_field :email, class: 'form-control' %>
-    </div>
-
-    <div class="form-group">
-      <%= f.label :image_url, 'Image URL' %>
-      <%= f.text_field :image_url, class: 'form-control' %>
-    </div>
-
-    <%= f.submit 'Create this student', class: 'btn btn-primary' %>
-    &nbsp;or
-    <%= link_to 'Cancel', students_path %>
-  <% end %>
-</div>
-
+<%= render partial: 'form', locals: {submit_copy: 'Create this student'} %>

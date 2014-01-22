@@ -5,7 +5,8 @@
 <%= link_to 'Create a new student', new_student_path %>
 
 <% @students.each do |student| %>
-  <div>
+  <div id="<%=dom_id(student)%>">
     <%= student.name %>
+    <%= link_to 'Edit', edit_student_path(student) %>
   </div>
 <% end %>

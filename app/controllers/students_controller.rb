@@ -19,7 +19,7 @@ class StudentsController < ApplicationController
   end
 
   def index
-    @students = Student.all
+    @students = Student.all.map { |s| StudentPresenter.new(s) }
   end
 
 

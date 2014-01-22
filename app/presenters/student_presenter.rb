@@ -6,9 +6,9 @@ class StudentPresenter < SimpleDelegator
   SIZE = 200
 
   def image_url
-    if __getobj__.image_url
+    if __getobj__.image_url.present?
       super
-    elsif __getobj__.email
+    elsif email.present?
       gravatar_url
     else
       fallback_url

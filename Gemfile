@@ -7,6 +7,7 @@ gem 'rails', '4.0.2'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
 gem 'jquery-rails'
+gem 'bootstrap-sass'
 
 group :development, :test do
   gem 'byebug'

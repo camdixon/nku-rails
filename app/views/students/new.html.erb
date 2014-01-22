@@ -1,0 +1,26 @@
+<h2>Create a new student</h2>
+
+<%= form_for @student do |f| %>
+  <div class="form-control">
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </div>
+
+  <div class="form-control">
+    <%= f.label :phonetic_name, 'Phonetic Name' %>
+    <%= f.text_field :phonetic_name %>
+  </div>
+
+  <div class="form-control">
+    <%= f.label :email %>
+    <%= f.text_field :email %>
+  </div>
+
+  <div class="form-control">
+    <%= f.label :image_url, 'Image URL' %>
+    <%= f.text_field :image_url %>
+  </div>
+
+  <%= f.submit 'Create this student' %>
+<% end %>
+

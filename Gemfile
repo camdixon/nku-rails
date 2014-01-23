@@ -8,6 +8,7 @@ gem 'rails', '4.0.2'
 gem 'sass-rails', '~> 4.0.0'
 gem 'jquery-rails'
 gem 'bootstrap-sass'
+gem 'puma'
 
 group :development, :test do
   gem 'byebug'

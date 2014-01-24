@@ -5,7 +5,7 @@ class StudentsController < ApplicationController
 
   def create
     @student = Student.create!(student_params)
-    redirect_to students_path
+    redirect_to students_path, notice: "Successfully created #{@student.name}"
   end
 
   def edit
@@ -15,7 +15,7 @@ class StudentsController < ApplicationController
   def update
     @student = Student.find(params[:id])
     @student.update_attributes!(student_params)
-    redirect_to students_path
+    redirect_to students_path, notice: "Successfully updated #{@student.name}"
   end
 
   def index

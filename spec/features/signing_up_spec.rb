@@ -7,7 +7,7 @@ feature 'Signing up' do
     let(:navbar_section) { NavbarSection.new }
     let(:new_student) { build(:student) }
 
-    it do
+    scenario do
       student_index_page.visit_page.visit_new_student_page
       new_student_page.create_student(new_student)
       expect(student_index_page).to have_student(new_student)

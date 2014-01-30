@@ -11,6 +11,7 @@ feature 'Signing up' do
       student_index_page.visit_page.visit_new_student_page
       new_student_page.create_student(new_student)
       expect(student_index_page).to have_student(new_student)
+      expect(navbar_section).to be_signed_in
     end
   end
 end

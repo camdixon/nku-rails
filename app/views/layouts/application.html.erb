@@ -9,6 +9,20 @@
 <body>
 
 <div class="container">
+  <nav class="navbar navbar-default">
+    <div class="navbar-header">
+      <div class="navbar-brand">Bueller</div>
+    </div>
+
+    <div class="collapse navbar-collapse navbar-right">
+      <% if current_student %>
+        <p class="navbar-text current-student">
+          Hi <%= link_to current_student.name, edit_student_path(current_student) %>!
+        </p>
+      <% end %>
+    </div>
+  </nav>
+
   <% flash.each do |key, value| %>
     <div class="<%= flash_class(key) %> push--top">
       <%= value %>

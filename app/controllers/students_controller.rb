@@ -5,6 +5,7 @@ class StudentsController < ApplicationController
 
   def create
     @student = Student.create!(student_params)
+    session[:student_id] = @student.id
     redirect_to students_path, notice: "Successfully created #{@student.name}"
   end
 

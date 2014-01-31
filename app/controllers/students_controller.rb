@@ -14,7 +14,7 @@ class StudentsController < ApplicationController
   end
 
   def update
-    @student = Student.find(params[:id])
+    @student = current_student
     @student.update_attributes!(student_params)
     redirect_to students_path, notice: "Successfully updated #{@student.name}"
   end

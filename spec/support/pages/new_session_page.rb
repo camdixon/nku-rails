@@ -3,6 +3,7 @@ class NewSessionPage
 
   def visit_page
     visit('/sessions/new')
+    self
   end
 
   def signin(student)

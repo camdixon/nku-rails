@@ -19,6 +19,7 @@
         <p class="navbar-text current-student">
           Hi <%= link_to current_student.name, edit_student_path(current_student) %>!
         </p>
+        <%= link_to "Sign out", session_path(1), class: "btn btn-default navbar-btn", method: :delete %></li>
       <% end %>
     </div>
   </nav>

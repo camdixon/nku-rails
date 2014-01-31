@@ -43,4 +43,5 @@ RSpec.configure do |config|
   config.order = "random"
 
   include FactoryGirl::Syntax::Methods
+  config.include FeatureHelper
 end

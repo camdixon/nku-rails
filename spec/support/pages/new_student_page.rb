@@ -8,6 +8,6 @@ class NewStudentPage
     fill_in 'Image URL', with: student.image_url
     fill_in 'Password', with: student.password
     fill_in 'Password Confirmation', with: student.password
-    click_button 'Create this student'
+    click_button 'Sign up'
   end
 end

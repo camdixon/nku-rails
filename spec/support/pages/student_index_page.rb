@@ -7,7 +7,7 @@ class StudentIndexPage
   end
 
   def visit_new_student_page
-    click_link 'Create a new student'
+    click_link 'Sign up'
   end
 
   def visit_edit_student_page(student)

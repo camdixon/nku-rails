@@ -10,4 +10,8 @@ class NewSessionPage
     fill_in 'Password', with: student.password || "password"
     click_button 'Sign in'
   end
+
+  def successful?
+    has_content?("Signed in!")
+  end
 end

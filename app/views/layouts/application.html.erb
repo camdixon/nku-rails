@@ -20,6 +20,9 @@
           Hi <%= link_to current_student.name, edit_student_path(current_student) %>!
         </p>
         <%= link_to "Sign out", session_path(1), class: "btn btn-default navbar-btn", method: :delete %></li>
+      <% else %>
+        <%= link_to "Sign Up", new_student_path, class: "btn btn-default navbar-btn" %>
+        <%= link_to "Sign In", new_session_path, class: "btn btn-primary navbar-btn" %>
       <% end %>
     </div>
   </nav>

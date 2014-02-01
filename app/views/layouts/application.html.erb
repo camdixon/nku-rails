@@ -17,7 +17,7 @@
     <div class="collapse navbar-collapse navbar-right">
       <% if current_student %>
         <p class="navbar-text current-student">
-          Hi <%= link_to current_student.name, profile_path %>!
+          Hi <%= current_student.name %>! <%= link_to "Edit your profile", profile_path %>
         </p>
         <%= link_to "Sign out", signout_path, class: "btn btn-default navbar-btn"%></li>
       <% else %>

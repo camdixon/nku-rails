@@ -17,9 +17,9 @@
     <div class="collapse navbar-collapse navbar-right">
       <% if current_student %>
         <p class="navbar-text current-student">
-          Hi <%= link_to current_student.name, edit_student_path(current_student) %>!
+          Hi <%= link_to current_student.name, profile_path %>!
         </p>
-        <%= link_to "Sign out", session_path(1), class: "btn btn-default navbar-btn", method: :delete %></li>
+        <%= link_to "Sign out", signout_path, class: "btn btn-default navbar-btn"%></li>
       <% else %>
         <%= link_to "Sign up", new_student_path, class: "btn btn-default navbar-btn" %>
         <%= link_to "Sign in", new_session_path, class: "btn btn-primary navbar-btn" %>

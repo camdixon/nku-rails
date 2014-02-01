@@ -6,7 +6,7 @@ class StudentsController < ApplicationController
   def create
     @student = Student.create!(student_params)
     session[:student_id] = @student.id
-    redirect_to students_path, notice: "Hi #{@student.name}. Thanks for signing up!"
+    redirect_to students_path, notice: "Hi #{@student.name}. Welcome to Bueller!"
   end
 
   def edit
@@ -15,7 +15,7 @@ class StudentsController < ApplicationController
 
   def update
     current_student.update_attributes!(student_params)
-    redirect_to students_path, notice: "Successfully updated profile"
+    redirect_to students_path, notice: "Successfully updated your profile"
   end
 
   def index

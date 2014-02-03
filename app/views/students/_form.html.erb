@@ -1,0 +1,27 @@
+<div class="row col-sm-6">
+  <%= form_for @student do |f| %>
+    <div class="form-group">
+      <%= f.label :name %>
+      <%= f.text_field :name, class: 'form-control' %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :nickname, 'Nickname' %>
+      <%= f.text_field :nickname, class: 'form-control' %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :email %>
+      <%= f.text_field :email, class: 'form-control' %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :image_url, 'Image URL' %>
+      <%= f.text_field :image_url, class: 'form-control' %>
+    </div>
+
+    <%= f.submit submit_copy, class: 'btn btn-primary' %>
+    &nbsp;or
+    <%= link_to 'Cancel', students_path %>
+  <% end %>
+</div>

@@ -3,5 +3,7 @@ NkuRails::Application.routes.draw do
     resources :comments
   end
 
-  root "welcome#index"
+  resources :students
+
+  root to: "students#index"
 end

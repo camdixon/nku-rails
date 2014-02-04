@@ -1,6 +1,7 @@
 require 'spec_helper'
 
 describe 'Editing profile' do
+feature 'Editing profile' do
   let(:student_index_page) { StudentIndexPage.new }
   let(:edit_student_page) { EditStudentPage.new }
   let!(:student) { create(:student) }

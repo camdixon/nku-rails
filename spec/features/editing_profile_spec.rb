@@ -9,7 +9,7 @@ feature 'Editing profile' do
   before { signin student }
 
   scenario do
-    student_index_page.visit_page.edit_profile
+    student_index_page.visit_page.visit_edit_profile_page
     edit_student_page.update_student_name("New Name")
     expect(student.reload.name).to eq("New Name")
   end

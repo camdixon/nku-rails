@@ -1,5 +1,5 @@
 module FeatureHelper
-  def signin(user)
-    NewSessionPage.new.visit_page.signin(user)
+  def sign_in(user)
+    NewSessionPage.new.visit_page.sign_in(user)
   end
 end

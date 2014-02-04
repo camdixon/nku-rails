@@ -6,7 +6,7 @@ class NewSessionPage
     self
   end
 
-  def signin(student)
+  def sign_in(student)
     fill_in 'Email', with: student.email
     fill_in 'Password', with: student.password || "password"
     click_button 'Sign in'

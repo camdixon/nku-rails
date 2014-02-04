@@ -1,12 +1,11 @@
 require 'spec_helper'
 
-describe 'Editing profile' do
 feature 'Editing profile' do
   let(:student_index_page) { StudentIndexPage.new }
   let(:edit_student_page) { EditStudentPage.new }
   let!(:student) { create(:student) }
 
-  before { signin student }
+  before { sign_in student }
 
   scenario do
     student_index_page.visit_page.visit_edit_profile_page

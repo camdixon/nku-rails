@@ -4,7 +4,7 @@ feature 'Signing out' do
   let(:navbar_section) { NavbarSection.new }
   let(:student) { create(:student) }
 
-  before { signin(student) }
+  before { sign_in(student) }
 
   context "valid password" do
     scenario do

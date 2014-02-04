@@ -17,4 +17,15 @@ class StudentIndexPage
   def has_student?(student)
     has_content?(student.name)
   end
+
+  def has_student_in_seat?(options={})
+    student = options[:student]
+    seat = options[:seat]
+
+    find("#seat-#{seat}").has_content?(student.name)
+  end
+
+  def has_absent_student?(student)
+    find("#absent-students").has_content?(student.name)
+  end
 end

@@ -4,6 +4,18 @@ feature 'Viewing students with attendance' do
   let(:student) { create(:student) }
   let(:student_index_page) { StudentIndexPage.new }
 
+  let!(:student_in_seat_1) do
+    attendance = create(:attendance, seat: 1)
+    create(:student, attendances: [attendance])
+  end
+
+  let!(:student_in_seat_2) do
+    attendance = create(:attendance, seat: 2)
+    create(:student, attendances: [attendance])
+  end
+
+  let!(:absent_student) { create(:student, attendances: []) }
+
   before { sign_in student }
 
   scenario do

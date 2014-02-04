@@ -1,0 +1,32 @@
+<div class="row col-sm-6">
+  <%= form_for @attendance do |f| %>
+    <div class="form-group">
+      <%= f.label 'Where area are you sitting in today?' %>
+      <%= f.text_field :seat, class: 'form-control' %>
+    </div>
+
+    <table class="seating-table">
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td>2</td>
+        </tr>
+
+        <tr>
+          <td>3</td>
+          <td>4</td>
+        </tr>
+      </tbody>
+      <tfoot>
+        <tr>
+          <td colspan=2>Front of classroom</td>
+        </tr>
+      </tfoot>
+    </table>
+
+    <%= f.submit "Create", class: 'btn btn-primary' %>
+    &nbsp;or
+    <%= link_to 'Cancel', students_path %>
+  <% end %>
+</div>
+

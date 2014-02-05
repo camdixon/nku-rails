@@ -4,7 +4,6 @@ describe Student do
   let(:now) { Time.parse('2014-01-01') }
 
   describe ".in_seat" do
-
     let!(:student_in_seat_1) do
       attendance = create(:attendance, created_at: now, seat: 1)
       create(:student, attendances: [attendance])

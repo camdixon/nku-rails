@@ -4,9 +4,7 @@ class Student < ActiveRecord::Base
   has_secure_password
 
   def self.in_seat(seat, now=Time.now)
-    joins(:attendances)
-      .where('attendances.created_at >= ?', now.beginning_of_day)
-      .where('attendances.seat = ?', seat)
+    present(now).where('attendances.seat = ?', seat)
   end
 
   def self.absent(now=Time.now)

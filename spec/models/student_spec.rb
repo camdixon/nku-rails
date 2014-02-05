@@ -1,21 +1,21 @@
 require 'spec_helper'
 
 describe Student do
-  let(:now) { Time.parse('2014-01-01') }
+  let(:now) { Date.today }
 
   describe ".in_seat" do
     let!(:student_in_seat_1) do
-      attendance = create(:attendance, created_at: now, seat: 1)
+      attendance = create(:attendance, attended_on: now, seat: 1)
       create(:student, attendances: [attendance])
     end
 
     let!(:student_in_seat_2) do
-      attendance = create(:attendance, created_at: now, seat: 2)
+      attendance = create(:attendance, attended_on: now, seat: 2)
       create(:student, attendances: [attendance])
     end
 
     let!(:absent_student) do
-      attendance = create(:attendance, created_at: now - 1.day, seat: 1)
+      attendance = create(:attendance, attended_on: now - 1.day, seat: 1)
       create(:student, attendances: [attendance])
     end
 
@@ -29,12 +29,12 @@ describe Student do
 
   describe ".absent" do
     let!(:present_student) do
-      attendance = create(:attendance, created_at: now, seat: 1)
+      attendance = create(:attendance, attended_on: now, seat: 1)
       create(:student, attendances: [attendance])
     end
 
     let!(:absent_student) do
-      attendance = create(:attendance, created_at: now - 1.day, seat: 1)
+      attendance = create(:attendance, attended_on: now - 1.day, seat: 1)
       create(:student, attendances: [attendance])
     end
 

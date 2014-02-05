@@ -15,7 +15,7 @@ ActiveRecord::Schema.define(version: 20140204145841) do
 
   create_table "attendances", force: true do |t|
     t.integer  "seat"
-    t.date     "created_on"
+    t.date     "attended_on"
     t.integer  "student_id"
     t.datetime "created_at"
     t.datetime "updated_at"

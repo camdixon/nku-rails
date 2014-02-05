@@ -5,12 +5,12 @@ feature 'Viewing students with attendance' do
   let(:student_index_page) { StudentIndexPage.new }
 
   let!(:student_in_seat_1) do
-    attendance = create(:attendance, seat: 1)
+    attendance = create(:attendance, seat: 1, attended_on: Date.today)
     create(:student, attendances: [attendance])
   end
 
   let!(:student_in_seat_2) do
-    attendance = create(:attendance, seat: 2)
+    attendance = create(:attendance, seat: 2, attended_on: Date.today)
     create(:student, attendances: [attendance])
   end
 

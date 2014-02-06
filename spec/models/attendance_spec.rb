@@ -5,7 +5,7 @@ describe Attendance do
     let(:now) { Date.today }
     let(:student) { create(:student) }
 
-    context "when an attendance exists for a student and day" do
+    context "when an attendance already exists for a student and day" do
       let!(:attendance) { create(:attendance, student: student, attended_on: now) }
 
       specify do

@@ -9,6 +9,26 @@
 <body>
 
 <div class="container">
+  <nav class="navbar navbar-default">
+    <div class="navbar-header">
+      <div class="navbar-brand">
+        <%= link_to "Bueller", root_path %>
+      </div>
+    </div>
+
+    <div class="collapse navbar-collapse navbar-right">
+      <% if current_student %>
+        <p class="navbar-text current-student">
+          Hi <%= current_student.name %>! <%= link_to "Edit your profile", profile_path %>
+        </p>
+        <%= link_to "Sign out", signout_path, class: "btn btn-default navbar-btn"%></li>
+      <% else %>
+        <%= link_to "Sign up", new_student_path, class: "btn btn-default navbar-btn" %>
+        <%= link_to "Sign in", new_session_path, class: "btn btn-primary navbar-btn" %>
+      <% end %>
+    </div>
+  </nav>
+
   <% flash.each do |key, value| %>
     <div class="<%= flash_class(key) %> push--top">
       <%= value %>

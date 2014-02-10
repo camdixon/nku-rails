@@ -5,7 +5,11 @@ class AttendancesController < ApplicationController
 
   def create
     @attendance = current_student.attendances.create(attendance_params)
-    redirect_to root_path, notice: "You've logged your attendance for today"
+    redirect_to attendances_path, notice: "You've logged your attendance for today"
+  end
+
+  def index
+    @attendances = Attendance.all
   end
 
   private

@@ -8,7 +8,7 @@ feature 'Signing out' do
 
   context "valid password" do
     scenario do
-      navbar_section.signout
+      navbar_section.sign_out
       expect(navbar_section).to_not be_signed_in
     end
   end

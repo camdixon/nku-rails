@@ -5,7 +5,7 @@ class NavbarSection
     has_css?('.navbar .current-student')
   end
 
-  def signout
+  def sign_out
     click_on "Sign out"
   end
 end

@@ -6,7 +6,7 @@ NkuRails::Application.routes.draw do
   resources :students, except: :edit
   resources :sessions
 
-  get "signout", to: "sessions#destroy", as: :signout
+  get "sign_out", to: "sessions#destroy", as: :sign_out
   get "profile", to: "students#edit", as: :profile
 
   root to: "students#index"

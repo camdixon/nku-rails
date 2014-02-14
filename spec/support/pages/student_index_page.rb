@@ -22,7 +22,7 @@ class StudentIndexPage
     student = options[:student]
     seat = options[:seat]
 
-    find("#seat-#{seat}").has_content?(student.name)
+    find("#seat-#{seat}").has_content?(student.nickname)
   end
 
   def has_absent_student?(student)

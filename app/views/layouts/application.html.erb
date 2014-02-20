@@ -15,6 +15,9 @@
         <%= link_to "Bueller", root_path %>
       </div>
     </div>
+    <ul class="nav navbar-nav">
+      <li><%= link_to "All attendances", attendances_path %></li>
+    </ul>
 
     <div class="collapse navbar-collapse navbar-right">
       <% if current_student %>

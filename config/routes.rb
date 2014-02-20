@@ -3,7 +3,9 @@ NkuRails::Application.routes.draw do
     resources :comments
   end
 
-  resources :students, except: :edit
+  resources :students, except: :edit do
+    resources :attendances
+  end
   resources :sessions
   resources :attendances
 

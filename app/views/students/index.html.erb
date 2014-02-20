@@ -2,7 +2,7 @@
   <%= form_tag root_path, method: :get, class: "form-inline" do %>
     <label>Date</label>
     <div class="form-group">
-      <%= date_field_tag :date, "", class: "form-control" %>
+      <%= date_field_tag :date, @current_date, class: "form-control" %>
     </div>
     <button class="btn btn-default">Go</button>
   <% end %>

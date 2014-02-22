@@ -4,8 +4,14 @@ class AttendancesController < ApplicationController
   end
 
   def create
-    @attendance = current_student.attendances.create(attendance_params)
-    redirect_to attendances_path, notice: "You've logged your attendance for today"
+    @attendance = current_student.attendances.build(attendance_params)
+    @attendance.attended_on = Date.today
+
+    if @attendance.save
+      redirect_to root_path, notice: "You've logged your attendance for today"
+    else
+      render :new
+    end
   end
 
   def index

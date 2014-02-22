@@ -2,14 +2,37 @@
   <h1>Students</h1>
 </div>
 
-<% @students.each do |student| %>
-  <div id="<%=dom_id(student)%>" class="list-item">
-    <div class="avatar pull-left" style='background-image: url(<%= student.avatar %>)'></div>
+<h3>Present</h3>
+<table class="seating-table">
+  <tbody>
+    <tr>
+      <%= render partial: 'seat', locals: {seat: 1} %>
+      <%= render partial: 'seat', locals: {seat: 2} %>
+    </tr>
+    <tr>
+      <%= render partial: 'seat', locals: {seat: 3} %>
+      <%= render partial: 'seat', locals: {seat: 4} %>
+    </tr>
+  </tbody>
 
-    <div class="info-block">
-      <h4><%= student.name %></h4>
-      <p><em>(<%= student.nickname %>)</em></p>
-      <p><%= student.email %></p>
+  <tfoot>
+    <tr>
+      <td colspan=2>Front of classroom</td>
+    </tr>
+  </tfoot>
+</table>
+
+<div id="absent-students">
+  <h3>Absent</h3>
+  <% @students.absent.each do |student| %>
+    <div id="<%=dom_id(student)%>" class="list-item">
+      <div class="avatar pull-left" style='background-image: url(<%= student.avatar %>)'></div>
+
+      <div class="info-block">
+        <h4><%= student.name %></h4>
+        <p><em>(<%= student.nickname %>)</em></p>
+        <p><%= student.email %></p>
+      </div>
     </div>
-  </div>
-<% end %>
+  <% end %>
+</div>

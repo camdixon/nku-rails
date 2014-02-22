@@ -1,5 +1,17 @@
 <div class="row col-sm-6">
   <%= form_for @attendance do |f| %>
+    <% if @attendance.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@attendance.errors.count, "error") %> prohibited
+          you from logging your attendance:</h2>
+        <ul>
+        <% @attendance.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+
     <div class="form-group">
       <%= f.label 'Where area are you sitting in today?' %>
       <%= f.text_field :seat, class: 'form-control' %>

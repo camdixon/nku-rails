@@ -1,0 +1,9 @@
+<td id="seat-<%= seat %>">
+  <% @students.in_seat(seat).each do |student| %>
+    <div id="<%= dom_id(student) %>" class="student--compact">
+      <div class="avatar" style='background-image: url(<%= student.avatar %>)'>
+        <div class="avatar__caption"><%= student.nickname %></div>
+      </div>
+    </div>
+  <% end %>
+</td>

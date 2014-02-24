@@ -8,7 +8,7 @@ class Student < ActiveRecord::Base
   end
 
   def self.absent(now=Date.today)
-    all - present(now)
+    where.not(id: present(now))
   end
 
   def self.present(now=Date.today)

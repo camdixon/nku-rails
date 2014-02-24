@@ -33,15 +33,18 @@ describe Student do
       create(:student, attendances: [attendance])
     end
 
-    let!(:absent_student) do
+    let!(:student_who_attended_earlier) do
       attendance = create(:attendance, attended_on: now - 1.day, seat: 1)
       create(:student, attendances: [attendance])
     end
 
+    let!(:student_who_never_attended) do
+      create(:student, attendances: [])
+    end
+
     specify do
       students = Student.absent(now)
-      expect(students).to include(absent_student)
-      expect(students).to_not include(present_student)
+      expect(students).to eq([student_who_attended_earlier, student_who_never_attended])
     end
   end
 end

@@ -1,4 +1,6 @@
 class StudentsController < ApplicationController
+  skip_before_filter :require_authentication, only: [:new, :create]
+
   def new
     @student = Student.new
   end

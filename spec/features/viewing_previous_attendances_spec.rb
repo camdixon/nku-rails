@@ -7,6 +7,8 @@ feature "Viewing previous attendances" do
   let!(:attendance_1) { create(:attendance, student: student_1, attended_on: Date.today, seat: 1) }
   let!(:attendance_2) { create(:attendance, student: student_2, attended_on: 1.week.ago, seat: 2) }
 
+  before { sign_in(student_1) }
+
   scenario do
     student_index_page.visit_page
     expect(student_index_page).to have_student_in_seat(student: student_1, seat: 1)

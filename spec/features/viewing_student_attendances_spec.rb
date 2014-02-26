@@ -7,6 +7,8 @@ feature "Viewing student attendances" do
   let!(:attendance) { create(:attendance, student: student) }
   let!(:other_attendance) { create(:attendance, student: other_student) }
 
+  before { sign_in(student) }
+
   scenario do
     attendance_index_page.visit_page
     attendance_index_page.select_student(student)

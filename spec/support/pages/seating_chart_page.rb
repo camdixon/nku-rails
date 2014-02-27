@@ -1,4 +1,4 @@
-class StudentIndexPage
+class SeatingChartPage
   include Capybara::DSL
 
   def visit_page
@@ -24,7 +24,7 @@ class StudentIndexPage
 
     find("#seat-#{seat}").has_content?(student.nickname)
   end
-  
+
   def submit_date(date)
     fill_in "date", with: date
     click_on "Go"

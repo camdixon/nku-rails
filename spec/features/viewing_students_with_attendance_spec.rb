@@ -25,4 +25,3 @@ feature 'Viewing students with attendance' do
   end
 end
 
-

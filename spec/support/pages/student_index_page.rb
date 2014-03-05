@@ -24,6 +24,11 @@ class StudentIndexPage
 
     find("#seat-#{seat}").has_content?(student.nickname)
   end
+  
+  def submit_date(date)
+    fill_in "date", with: date
+    click_on "Go"
+  end
 
   def has_absent_student?(student)
     find("#absent-students").has_content?(student.name)

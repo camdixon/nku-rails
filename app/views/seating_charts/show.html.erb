@@ -1,0 +1,48 @@
+<nav class="nav pull-right">
+  <%= form_tag root_path, method: :get, class: "form-inline" do %>
+    <label>Date</label>
+    <div class="form-group">
+      <%= date_field_tag :date, @current_date, class: "form-control" %>
+    </div>
+    <button class="btn btn-default">Go</button>
+  <% end %>
+</nav>
+
+<div class="page-header">
+  <h1>Students</h1>
+</div>
+
+<h3>Present</h3>
+<table class="seating-table">
+  <tbody>
+    <tr>
+      <%= render partial: 'seat', locals: {seat: 1} %>
+      <%= render partial: 'seat', locals: {seat: 2} %>
+    </tr>
+    <tr>
+      <%= render partial: 'seat', locals: {seat: 3} %>
+      <%= render partial: 'seat', locals: {seat: 4} %>
+    </tr>
+  </tbody>
+
+  <tfoot>
+    <tr>
+      <td colspan=2>Front of classroom</td>
+    </tr>
+  </tfoot>
+</table>
+
+<div id="absent-students">
+  <h3>Absent</h3>
+  <% @students.absent(@current_date).each do |student| %>
+    <div id="<%=dom_id(student)%>" class="list-item">
+      <div class="avatar pull-left" style='background-image: url(<%= student.avatar %>)'></div>
+
+      <div class="info-block">
+        <h4><%= student.name %></h4>
+        <p><em>(<%= student.nickname %>)</em></p>
+        <p><%= student.email %></p>
+      </div>
+    </div>
+  <% end %>
+</div>

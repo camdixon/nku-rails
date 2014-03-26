@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140226010851) do
+ActiveRecord::Schema.define(version: 20140326214845) do
 
   create_table "attendances", force: true do |t|
     t.integer  "seat"
@@ -27,6 +27,7 @@ ActiveRecord::Schema.define(version: 20140226010851) do
     t.string "email"
     t.string "image_url"
     t.string "password_digest"
+    t.string "admin"
   end
 
 end

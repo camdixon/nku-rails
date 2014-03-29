@@ -4,6 +4,9 @@ NkuRails::Application.routes.draw do
   end
   resources :sessions
   resources :attendances
+  resources :assignments
+  post "assignments/upload", to: "assignments#upload", as: "assignments_upload"
+  
   resource :seating_chart
 
   get "sign_out", to: "sessions#destroy"

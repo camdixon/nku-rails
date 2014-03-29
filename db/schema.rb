@@ -11,7 +11,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140326214845) do
+ActiveRecord::Schema.define(version: 20140328220406) do
+
+  create_table "assignments", force: true do |t|
+    t.integer "total"
+    t.integer "score"
+    t.integer "student_id"
+    t.string  "name"
+  end
 
   create_table "attendances", force: true do |t|
     t.integer  "seat"
@@ -22,12 +29,12 @@ ActiveRecord::Schema.define(version: 20140326214845) do
   end
 
   create_table "students", force: true do |t|
-    t.string "name"
-    t.string "nickname"
-    t.string "email"
-    t.string "image_url"
-    t.string "password_digest"
-    t.string "admin"
+    t.string  "name"
+    t.string  "nickname"
+    t.string  "email"
+    t.string  "image_url"
+    t.string  "password_digest"
+    t.boolean "admin"
   end
 
 end

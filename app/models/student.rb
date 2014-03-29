@@ -14,10 +14,6 @@ class Student < ActiveRecord::Base
   def self.present(now=Date.today)
     joins(:attendances).where(attendances: {attended_on: now})
   end
-  
-  def self.is_admin()
-    where(id: admin = true)
-  end
 
   def avatar
     Avatar.from_student(self)

@@ -9,6 +9,14 @@ class ApplicationController < ActionController::Base
     @current_student ||= Student.find_by(id: session[:student_id]) if session[:student_id].present?
   end
   helper_method :current_student
+  
+  def require_admin
+    if current_student.admin?
+      true
+    else
+      redirect_to new_session_path
+    end
+  end
 
   def require_authentication
     if current_student

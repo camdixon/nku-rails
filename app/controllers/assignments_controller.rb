@@ -36,7 +36,6 @@ class AssignmentsController < ApplicationController
       #if we do not have the above student in our database, skip over him
       next if student_email == nil
       
-      debugger
       #update score if student's email and assignment name already exist
       @assignments.each do |assignment|
         if assignment.name == row["name"] && student_email.email == row["email"]

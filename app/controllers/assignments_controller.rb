@@ -27,7 +27,6 @@ class AssignmentsController < ApplicationController
     csv_text = params[:upload].read
     csv = CSV.parse(csv_text, :headers => true)
     count = 0
-    update = 0
     csv.each do |row|
       found_existing = false
       #find a student by email and tie to student
@@ -37,13 +36,11 @@ class AssignmentsController < ApplicationController
       #if we do not have the above student in our database, skip over him
       next if student_email == nil
       
-      debugger
       #update score if student's email and assignment name already exist
       @assignments.each do |assignment|
         if assignment.name == row["name"] && student_email.email == row["email"]
           found_existing = true
-          user.update(total:row["total"], score:row["score"])
-          update += 1
+          assignment.update(total:row["total"], score:row["score"])
         end
       end
       next if found_existing == true
@@ -52,7 +49,7 @@ class AssignmentsController < ApplicationController
       @assignment = Assignment.create!(name:row["name"], student_id:student_email.id, total:row["total"], score:row["score"])
       count += 1
     end
-    redirect_to assignments_path, notice: "#{count} assignments were created | #{update} assignments were updated"
+    redirect_to assignments_path, notice: "#{count} assignments were created"
   end
 
   private

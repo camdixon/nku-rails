@@ -25,6 +25,7 @@ class AssignmentsController < ApplicationController
   def upload
     csv_text = params[:upload].read
     csv = CSV.parse(csv_text, :headers => true)
+    count = 0
     csv.each do |row|
       #find a student by email and tie to student
       #skip line if it has any blank values
@@ -34,8 +35,9 @@ class AssignmentsController < ApplicationController
       #otherwise, add in the new assignment below
       student = Student.find_by_email(params[row["email"]])
       @assignment = Assignment.create!(name:row["name"], total:row["total"], score:row["score"])
+      count += 1
     end
-    redirect_to assignments_path, notice: "Assignments uploaded."
+    redirect_to assignments_path, notice: "#{count} assignments were created"
   end
 
   private

@@ -4,3 +4,25 @@
 <div class="col-sm-4">
   <%= link_to "Upload Assignments", new_assignment_path, class: "btn btn-default" %>
 </div>
+
+<table class="table assignment-table">
+  <thead>
+    <tr>
+      <th>Assignment Name</th>
+      <th>Student</th>
+      <th>Score</th>
+      <th>Total</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @assignments.each do |assignment| %>
+      <tr id="<%= dom_id(assignment) %>">
+        <td><%= assignment.name %></td>
+        <td><%= assignment.student_id %></td>
+        <td><%= assignment.score %></td>
+        <td><%= assignment.total %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

@@ -31,10 +31,11 @@ class AssignmentsController < ApplicationController
       next if row["email"] == nil || row["score"] == nil || row["name"] == nil || row["total"] == nil
       #update score if student's email and assignment name already exist
       #here
+      #otherwise, add in the new assignment below
       student = Student.find_by_email(params[row["email"]])
       @assignment = Assignment.create!(name:row["name"], total:row["total"], score:row["score"])
     end
-    redirect_to
+    redirect_to assignments_path, notice: "Assignments uploaded."
   end
 
   private

@@ -27,6 +27,10 @@ class AssignmentsController < ApplicationController
     csv = CSV.parse(csv_text, :headers => true)
     csv.each do |row|
       #find a student by email and tie to student
+      #skip line if it has any blank values
+      next if row["email"] == nil || row["score"] == nil || row["name"] == nil || row["total"] == nil
+      #update score if student's email and assignment name already exist
+      #here
       student = Student.find_by_email(params[row["email"]])
       @assignment = Assignment.create!(name:row["name"], total:row["total"], score:row["score"])
     end
